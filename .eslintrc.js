@@ -15,8 +15,9 @@ module.exports = {
   ],
   rules: {
     "@typescript-eslint/indent": ["error", 2],
+    "@typescript-eslint/interface-name-prefix": 0,
     "@typescript-eslint/no-explicit-any": ["error"],
-    "@typescript-eslint/no-non-null-assertion": false,
+    "@typescript-eslint/no-non-null-assertion": 0,
     "arrow-parens": ["error", "always"],
     "class-methods-use-this": ["warn"],
     "import/prefer-default-export": 0,

@@ -4,6 +4,6 @@ export interface CatParams {
   age: number;
 }
 
-export interface Cat extends CatParams {
+export interface ICat extends CatParams {
   id: number;
 }
