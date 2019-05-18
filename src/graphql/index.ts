@@ -1,4 +1,4 @@
-import rootValue from "./root-value";
+import resolvers from "./resolvers";
 import schema from "./schema";
 
-export { rootValue, schema };
+export { resolvers, schema };

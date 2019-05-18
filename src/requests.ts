@@ -1,11 +1,10 @@
 import { graphql } from "graphql";
 import { Cat } from "./types";
-import { rootValue, schema } from "./graphql";
+import { resolvers, schema } from "./graphql";
 
 // This tests out your schema/resolvers and makes some requests.
 
 export async function fetchCat(id: number): Promise<Cat | undefined> {
-  // TODO: Something is wrong with variables...
   const result = await graphql<{ cat: Cat | undefined }>(
     schema,
     `
@@ -15,10 +14,12 @@ export async function fetchCat(id: number): Promise<Cat | undefined> {
           firstName
           lastName
           age
+
+          square(number: 123)
         }
       }
     `,
-    rootValue,
+    resolvers,
     {},
     { id },
   );
@@ -35,7 +36,6 @@ export async function createCat(
   lastName: string,
   age: number,
 ): Promise<Cat | undefined> {
-  // TODO: Something is wrong with variables...
   const result = await graphql<{ createCat: Cat | undefined }>(
     schema,
     `
@@ -48,7 +48,7 @@ export async function createCat(
         }
       }
     `,
-    rootValue,
+    resolvers,
   );
 
   if (result.errors) {
