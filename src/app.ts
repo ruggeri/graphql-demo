@@ -1,7 +1,7 @@
 import * as express from "express";
 import * as graphqlHTTP from "express-graphql";
 import * as winston from "winston";
-import { resolvers, schema } from "./graphql";
+import { schema } from "./graphql";
 
 export default async function startApp(): Promise<void> {
   const app = express();
@@ -9,7 +9,6 @@ export default async function startApp(): Promise<void> {
     "/graphql",
     graphqlHTTP({
       schema,
-      rootValue: resolvers,
       pretty: true,
       graphiql: true,
     }),

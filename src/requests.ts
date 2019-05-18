@@ -1,6 +1,6 @@
 import { graphql } from "graphql";
 import { Cat, CatParams } from "./datastore";
-import { resolvers, schema } from "./graphql";
+import { schema } from "./graphql";
 
 // This tests out your schema/resolvers and makes some requests.
 
@@ -19,7 +19,7 @@ export async function fetchCat(id: number): Promise<Cat | undefined> {
         }
       }
     `,
-    resolvers,
+    {},
     {},
     { id },
   );
@@ -46,7 +46,7 @@ export async function createCat(
         }
       }
     `,
-    resolvers,
+    {},
     {},
     { catParams },
   );

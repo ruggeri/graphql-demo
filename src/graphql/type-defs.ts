@@ -1,6 +1,4 @@
-import { buildSchema } from "graphql";
-
-const schema = buildSchema(`
+const typeDefs = `
 input CatParams {
   firstName: String!
   lastName: String!
@@ -23,6 +21,6 @@ type Query {
 type Mutation {
   createCat(catParams: CatParams): Cat
 }
-`);
+`;
 
-export default schema;
+export default typeDefs;
