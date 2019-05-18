@@ -21,7 +21,6 @@
 
 ## TODO
 
-* Add proper testing.
 * Authentication:
     * graphql-resolvers (combineResolvers)
 * TypeGraphQL.
