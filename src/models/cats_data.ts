@@ -29,17 +29,27 @@ const catsSeedData = [
   },
 ];
 
-export function createCat(catParams: CatParams): Cat {
+export function createCat(catParams: CatParams): Promise<Cat> {
   const newId = catsMap.size + 1;
   const newCat = new Cat(newId, catParams);
 
   catsMap.set(newId, newCat);
 
-  return newCat;
+  return new Promise(
+    (resolve): void => {
+      // Sleep 10ms to pretend that we're create a new cat.
+      setTimeout((): void => resolve(newCat), 10);
+    },
+  );
 }
 
-export function fetchCat(id: number): Cat | undefined {
-  return catsMap.get(id);
+export function fetchCat(id: number): Promise<Cat | undefined> {
+  return new Promise(
+    (resolve): void => {
+      // Sleep 10ms to pretend that we're fetching a new cat.
+      setTimeout((): void => resolve(catsMap.get(id)), 10);
+    },
+  );
 }
 
 export function seedCats(): void {

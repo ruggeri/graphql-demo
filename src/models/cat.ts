@@ -7,11 +7,11 @@ export interface CatParams {
 }
 
 export class Cat {
-  public static fetch(id: number): Cat | undefined {
+  public static fetch(id: number): Promise<Cat | undefined> {
     return fetchCat(id);
   }
 
-  public static create(catParams: CatParams): Cat {
+  public static create(catParams: CatParams): Promise<Cat> {
     return createCat(catParams);
   }
 
