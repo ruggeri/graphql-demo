@@ -14,7 +14,7 @@
     "serve": "wait-on ./dist/app.js && ./node_modules/.bin/nodemon ./dist/app.js",
     "ts:build": "./node_modules/.bin/tsc",
     "ts:clean": "rm -rf ./dist/*",
-    "ts:watch": "./node_modules/.bin/tsc -w --preserveWatchOutput"
+    "ts:watch": "./node_modules/.bin/tsc -w --preserveWatchOutput --pretty"
   },
   "devDependencies": {
     "@types/express": "^4.16.1",

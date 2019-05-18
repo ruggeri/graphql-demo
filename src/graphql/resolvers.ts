@@ -2,13 +2,13 @@ import { Cat, CatParams, createCat, fetchCat } from "../datastore";
 
 const resolvers = {
   Query: {
-    cat(_, { id, ...rest }: { id: number }): Cat | undefined {
+    cat(_: object, { id }: { id: number }): Cat | undefined {
       return fetchCat(id);
     },
   },
 
   Mutation: {
-    createCat(_, { catParams }: { catParams: CatParams }): Cat {
+    createCat(_: object, { catParams }: { catParams: CatParams }): Cat {
       return createCat(catParams);
     },
   },
