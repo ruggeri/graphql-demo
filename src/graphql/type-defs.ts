@@ -21,6 +21,7 @@ type Query {
 
 type Mutation {
   createCat(catParams: CatParams): Cat
+  createFriendship(friendId1: Int!, friendId2: Int!): Boolean
 }
 `;
 

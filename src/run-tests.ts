@@ -1,5 +1,5 @@
 import * as winston from "winston";
-import { createCat, fetchCat } from "./requests";
+import { createCat, createFriendship, fetchCat } from "./requests";
 
 winston.configure({
   format: winston.format.combine(
@@ -16,6 +16,8 @@ async function main(): Promise<void> {
     age: -1,
   });
   winston.info("newCat", { newCat });
+
+  await createFriendship(3, newCat.id);
 
   const fetchedCats = [
     await fetchCat(1),

@@ -17,6 +17,16 @@ const resolvers = {
     ): Promise<Cat> {
       return Cat.create(catParams);
     },
+
+    async createFriendship(
+      _: object,
+      {
+        friendId1,
+        friendId2,
+      }: { friendId1: number; friendId2: number },
+    ): Promise<void> {
+      return Friendship.create(friendId1, friendId2);
+    },
   },
 
   Cat: {

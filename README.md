@@ -21,7 +21,6 @@
 
 ## TODO
 
-* Add join table to example.
 * Add proper testing.
 * Authentication:
     * graphql-resolvers (combineResolvers)
