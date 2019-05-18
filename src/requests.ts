@@ -15,7 +15,11 @@ export async function fetchCat(id: number): Promise<Cat | undefined> {
           lastName
           age
 
-          square(number: 123)
+          friends {
+            id
+            firstName
+            lastName
+          }
         }
       }
     `,

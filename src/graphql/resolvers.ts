@@ -1,15 +1,37 @@
-import { Cat, CatParams } from "../models";
+import { Cat, CatParams, Friendship } from "../models";
 
 const resolvers = {
   Query: {
-    cat(_: object, { id }: { id: number }): Cat | undefined {
+    async cat(
+      _: object,
+      { id }: { id: number },
+    ): Promise<Cat | undefined> {
       return Cat.fetch(id);
     },
   },
 
   Mutation: {
-    createCat(_: object, { catParams }: { catParams: CatParams }): Cat {
+    async createCat(
+      _: object,
+      { catParams }: { catParams: CatParams },
+    ): Promise<Cat> {
       return Cat.create(catParams);
+    },
+  },
+
+  Cat: {
+    async friends(cat: Cat): Promise<Cat[]> {
+      const friendIds = await Friendship.fetchFriendIdsFor(cat.id);
+
+      const friendPromises = friendIds.map(
+        async (friendId): Promise<Cat> => {
+          // I throw away undefined because the cats ids are explicitly
+          // from the Friendships table.
+          return (await Cat.fetch(friendId))!;
+        },
+      );
+
+      return Promise.all(friendPromises);
     },
   },
 };

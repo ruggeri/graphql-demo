@@ -9,8 +9,9 @@ type Cat {
   id: Int!
   firstName: String!
   lastName: String!
-  age: Int
+  age: Int!
 
+  friends: [Cat!]!
   square(number: Int!): Int!
 }
 
