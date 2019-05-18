@@ -5,13 +5,16 @@ module.exports = {
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:react/recommended",
+    "prettier"
   ],
   parser: "@typescript-eslint/parser",
   plugins: [
     "@typescript-eslint",
     "import",
     "json",
+    "prettier",
     "react",
+    "sort-destructure-keys",
   ],
   rules: {
     "@typescript-eslint/indent": ["error", 2],
@@ -23,6 +26,7 @@ module.exports = {
     "import/prefer-default-export": 0,
     "quotes": ["error", "double"],
     "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
+    "sort-destructure-keys/sort-destructure-keys": 2,
   },
   settings: {
     "import/resolver": {
