@@ -1,0 +1,37 @@
+{
+  "dependencies": {
+    "express": "^4.17.0",
+    "express-graphql": "^0.8.0",
+    "graphql": "^14.3.0",
+    "ts-node": "^8.1.0",
+    "winston": "^3.2.1"
+  },
+  "scripts": {
+    "dev": "yarn run ts:clean && yarn run ts:build && ./node_modules/.bin/concurrently npm:run-tests npm:serve npm:ts:watch",
+    "run-tests": "wait-on ./dist/run-tests.js && ./node_modules/.bin/nodemon ./dist/run-tests.js",
+    "serve": "wait-on ./dist/app.js && ./node_modules/.bin/nodemon ./dist/app.js",
+    "ts:build": "./node_modules/.bin/tsc",
+    "ts:clean": "rm -rf ./dist/*",
+    "ts:watch": "./node_modules/.bin/tsc -w --preserveWatchOutput"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "@types/express-graphql": "^0.8.0",
+    "@types/graphql": "^14.2.0",
+    "@types/winston": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "concurrently": "^4.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-json": "^1.4.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "nodemon": "^1.19.0",
+    "prettier": "^1.17.1",
+    "typescript": "^3.4.5",
+    "wait-on": "^3.2.0"
+  },
+  "license": "WTFPL"
+}
