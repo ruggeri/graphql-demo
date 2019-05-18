@@ -4,8 +4,14 @@ import { schema } from "../graphql";
 
 // This tests out your schema/resolvers and makes some requests.
 
-export async function fetchCat(id: number): Promise<Cat | undefined> {
-  const result = await graphql<{ cat: Cat | undefined }>(
+interface CatWithFriends extends Cat {
+  friends: Cat[];
+}
+
+export async function fetchCat(
+  id: number,
+): Promise<CatWithFriends | undefined> {
+  const result = await graphql<{ cat: CatWithFriends | undefined }>(
     schema,
     `
       query FetchCat($id: Int!) {
