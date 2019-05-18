@@ -1,15 +1,15 @@
-import { Cat, CatParams, createCat, fetchCat } from "../datastore";
+import { Cat, CatParams } from "../models";
 
 const resolvers = {
   Query: {
     cat(_: object, { id }: { id: number }): Cat | undefined {
-      return fetchCat(id);
+      return Cat.fetch(id);
     },
   },
 
   Mutation: {
     createCat(_: object, { catParams }: { catParams: CatParams }): Cat {
-      return createCat(catParams);
+      return Cat.create(catParams);
     },
   },
 };

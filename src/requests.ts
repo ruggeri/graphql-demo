@@ -1,5 +1,5 @@
 import { graphql } from "graphql";
-import { Cat, CatParams } from "./datastore";
+import { Cat, CatParams } from "./models";
 import { schema } from "./graphql";
 
 // This tests out your schema/resolvers and makes some requests.
