@@ -7,15 +7,6 @@
     "ts-node": "^8.1.0",
     "winston": "^3.2.1"
   },
-  "scripts": {
-    "dev": "yarn run ts:clean && yarn run ts:build && ./node_modules/.bin/concurrently npm:eslint npm:run-tests npm:serve npm:ts:watch",
-    "eslint": "./node_modules/.bin/nodemon ./node_modules/.bin/eslint \"src/**\" && true",
-    "run-tests": "wait-on ./dist/run-tests.js && ./node_modules/.bin/nodemon ./dist/run-tests.js",
-    "serve": "wait-on ./dist/app.js && ./node_modules/.bin/nodemon ./dist/app.js",
-    "ts:build": "./node_modules/.bin/tsc",
-    "ts:clean": "rm -rf ./dist/*",
-    "ts:watch": "./node_modules/.bin/tsc -w --preserveWatchOutput --pretty"
-  },
   "devDependencies": {
     "@types/express": "^4.16.1",
     "@types/express-graphql": "^0.8.0",
