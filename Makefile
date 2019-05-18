@@ -15,7 +15,7 @@ eslint:
 	$(ESLINT) "src/**"
 
 eslint_watch:
-	$(NODEMON) --exec "make eslint"
+	$(NODEMON) --ext js,ts,tsx ./src/ --exec "make eslint"
 
 serve:
 	$(WAIT_ON) -l $(APP_JS)
@@ -35,7 +35,7 @@ ts_build:
 	$(TSC) --pretty
 
 ts_clean:
-	rm -r ./dist/* && true
+	rm -r ./dist/* || true
 
 ts_watch:
-	$(TSC) -w --preserveWatchOutput --pretty
+	$(NODEMON) --ext js,ts,tsx --watch ./src/ --exec "make ts_clean ts_build"
