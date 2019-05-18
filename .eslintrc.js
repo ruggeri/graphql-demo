@@ -7,6 +7,17 @@ module.exports = {
     "plugin:react/recommended",
     "prettier"
   ],
+  overrides: [
+    {
+      files: [
+        "**/*.test.ts",
+      ],
+      env: {
+        jest: true,
+      },
+      plugins: ["jest"],
+    }
+  ],
   parser: "@typescript-eslint/parser",
   plugins: [
     "@typescript-eslint",

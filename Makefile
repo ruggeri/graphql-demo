@@ -1,11 +1,11 @@
 CONCURRENTLY=./node_modules/.bin/concurrently
 ESLINT=./node_modules/.bin/eslint
+JEST=./node_modules/.bin/jest
 NODEMON=./node_modules/.bin/nodemon
 TSC=./node_modules/.bin/tsc
 WAIT_ON=./node_modules/.bin/wait-on
 
 APP_JS=./dist/app.js
-RUN_TESTS_JS=./dist/client/run-tests.js
 
 run_dev_environment:
 	make ts_clean
@@ -25,8 +25,7 @@ serve_watch:
 	$(NODEMON) --watch ./dist/ --exec "make serve"
 
 tests_run:
-	$(WAIT_ON) -l $(RUN_TESTS_JS)
-	node $(RUN_TESTS_JS)
+	$(JEST) ./src
 
 tests_watch:
 	$(NODEMON) --watch ./dist/ --exec "make tests_run"
