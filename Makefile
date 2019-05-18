@@ -5,7 +5,7 @@ TSC=./node_modules/.bin/tsc
 WAIT_ON=./node_modules/.bin/wait-on
 
 APP_JS=./dist/app.js
-RUN_TESTS_JS=./dist/run-tests.js
+RUN_TESTS_JS=./dist/client/run-tests.js
 
 run_dev_environment:
 	make ts_clean
