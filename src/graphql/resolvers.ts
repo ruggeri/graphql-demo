@@ -1,4 +1,4 @@
-import { Cat, createCat, CatParams, fetchCat } from "../datastore";
+import { Cat, CatParams, createCat, fetchCat } from "../datastore";
 
 const resolvers = {
   cat({ id }: { id: number }): Cat | undefined {
