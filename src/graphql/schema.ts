@@ -1,12 +1,16 @@
 import { buildSchema } from "graphql";
 
-// TODO: Input types? For easier params checking?
-
 const schema = buildSchema(`
+input CatParams {
+  firstName: String!
+  lastName: String!
+  age: Int!
+}
+
 type Cat {
   id: Int!
-  firstName: String
-  lastName: String
+  firstName: String!
+  lastName: String!
   age: Int
 
   square(number: Int!): Int!
@@ -17,7 +21,7 @@ type Query {
 }
 
 type Mutation {
-  createCat(firstName: String!, lastName: String!, age: Int!): Cat
+  createCat(catParams: CatParams): Cat
 }
 `);
 

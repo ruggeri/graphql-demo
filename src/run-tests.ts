@@ -10,7 +10,11 @@ winston.configure({
 });
 
 async function main(): Promise<void> {
-  const newCat = await createCat("Senacy", "Tamboer", -1);
+  const newCat = await createCat({
+    firstName: "Senacy",
+    lastName: "Tamboer",
+    age: -1,
+  });
   winston.info("newCat", { newCat });
 
   const fetchedCats = [

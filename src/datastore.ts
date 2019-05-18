@@ -1,6 +1,10 @@
-import { ICat, CatParams } from "./types";
+export interface CatParams {
+  firstName: string;
+  lastName: string;
+  age: number;
+}
 
-export class Cat implements ICat {
+export class Cat {
   public constructor(id: number, params: CatParams) {
     this.id = id;
     this.firstName = params.firstName;

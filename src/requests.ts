@@ -1,5 +1,5 @@
 import { graphql } from "graphql";
-import { Cat } from "./datastore";
+import { Cat, CatParams } from "./datastore";
 import { resolvers, schema } from "./graphql";
 
 // This tests out your schema/resolvers and makes some requests.
@@ -32,15 +32,13 @@ export async function fetchCat(id: number): Promise<Cat | undefined> {
 }
 
 export async function createCat(
-  firstName: string,
-  lastName: string,
-  age: number,
+  catParams: CatParams,
 ): Promise<Cat | undefined> {
   const result = await graphql<{ createCat: Cat | undefined }>(
     schema,
     `
-      mutation {
-        createCat(firstName: "${firstName}", lastName: "${lastName}", age: ${age}) {
+      mutation CreateCat($catParams: CatParams) {
+        createCat(catParams: $catParams) {
           id
           firstName
           lastName
@@ -49,6 +47,8 @@ export async function createCat(
       }
     `,
     resolvers,
+    {},
+    { catParams },
   );
 
   if (result.errors) {
