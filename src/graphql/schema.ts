@@ -1,4 +1,4 @@
-const typeDefs = `
+const schema = `
 input CatParams {
   firstName: String!
   lastName: String!
@@ -25,4 +25,4 @@ type Mutation {
 }
 `;
 
-export default typeDefs;
+export default schema;
